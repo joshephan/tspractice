@@ -4,21 +4,16 @@ import UserTypes from "./../types/UserType";
 export interface UserTypesModal extends UserTypes, Document {}
 
 const UserSchema = new Schema({
-  userId: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  pw: {
-    type: String, 
-    required: true,
-    unique: false
-  },
   email: {
     type: String,
     required: true,
     unique: true,
   },
+  pw: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 });
 
-export default model<UserTypesModal>('User', UserSchema);
+export default model<UserTypesModal>("User", UserSchema);

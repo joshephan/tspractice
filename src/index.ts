@@ -1,7 +1,9 @@
 import * as express from "express";
 import * as mongoose from "mongoose";
-import config from "./config";
 import { json } from "body-parser";
+
+import config from "./config";
+import UserModal from "./mongo/model/User";
 
 class App {
   public application: express.Application;
@@ -24,7 +26,11 @@ mongoose.connect(config.mongodb, {
 });
 
 app.get("/", (req: express.Request, res : express.Response) => {
-  res.send("start");
+  new UserModal({
+    email: "joshephan0204@gmail.com",
+    pw: "abcde"
+  });
+  res.send("visit index");
 })
 
 app.listen(4000, () => {
